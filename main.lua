@@ -1,10 +1,13 @@
 function read_file(filename)
     local content = ""
 
-    if filename[0] == 
+    if string.byte(filename, 1) == string.byte("/") then
+        filename = string.sub(filename, 2)
+    end
+
     local file = io.open(filename)
     if file then
-        local content = file:read("*a")
+        content = file:read("*a")
         file:close()
     end
 
